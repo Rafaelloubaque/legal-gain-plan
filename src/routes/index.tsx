@@ -81,7 +81,7 @@ function Landing() {
           <img
             src={logo}
             alt="EDXCont Contabilidade"
-            className={`w-auto transition-all duration-500 ${scrolled ? "h-8" : "h-10"} ${scrolled ? "" : "brightness-0 invert"}`}
+            className={`w-auto transition-all duration-500 ${scrolled ? "h-12" : "h-16"} ${scrolled ? "" : "brightness-0 invert"}`}
           />
 
           <nav className="hidden items-center gap-8 md:flex">
@@ -456,7 +456,7 @@ function Landing() {
       {/* FOOTER */}
       <footer className="border-t border-border bg-background">
         <div className="mx-auto max-w-5xl space-y-4 px-6 py-12 text-center">
-          <img src={logo} alt="EDXCont" className="mx-auto h-9 w-auto" />
+          <img src={logo} alt="EDXCont" className="mx-auto h-16 w-auto" />
           <p className="text-xs text-muted-foreground">
             © 2026 EDXCont Contabilidade LTDA | CNPJ: 39.566.457/0001-01 – Todos os direitos
             reservados
