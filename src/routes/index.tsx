@@ -77,27 +77,63 @@ function Landing() {
             : "border-b border-transparent bg-transparent"
         }`}
       >
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-4">
           <img
             src={logo}
             alt="EDXCont Contabilidade"
             className={`w-auto transition-all duration-500 ${scrolled ? "h-8" : "h-10"} ${scrolled ? "" : "brightness-0 invert"}`}
           />
-          <a
-            href={WHATSAPP}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative hidden overflow-hidden rounded-md p-[1.5px] sm:inline-block"
-          >
-            <span className="pointer-events-none absolute inset-[-50%] animate-[spin_4s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0%,var(--primary)_15%,var(--accent)_30%,transparent_45%,transparent_55%,var(--primary)_70%,var(--accent)_85%,transparent_100%)]" />
-            <span className="relative flex items-center gap-2 rounded-[5px] bg-secondary px-4 py-2 text-sm font-medium text-white transition-colors group-hover:bg-secondary/90">
+
+          <nav className="hidden items-center gap-8 md:flex">
+            {[
+              { label: "Serviços", href: "#servicos" },
+              { label: "Sobre", href: "#sobre" },
+              { label: "Resultados", href: "#resultados" },
+              { label: "Materiais", href: "#materiais" },
+            ].map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                className={`group relative text-sm font-medium transition-colors ${
+                  scrolled ? "text-white/80 hover:text-white" : "text-white/85 hover:text-white"
+                }`}
+              >
+                {l.label}
+                <span className="absolute -bottom-1 left-0 h-px w-0 bg-accent transition-all duration-300 group-hover:w-full" />
+              </a>
+            ))}
+          </nav>
+
+          <div className="flex items-center gap-3">
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="hidden h-9 w-9 items-center justify-center rounded-full border border-white/25 text-white/80 transition-colors hover:border-white hover:text-white sm:flex"
+            >
               <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current" aria-hidden>
-                <path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9s-.5-.1-.7.1c-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.3 5.2 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.7.5 3.4 1.3 4.8L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z" />
+                <path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.3-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.4-1.3.8-.4.4-.6.8-.8 1.3-.2.4-.3 1-.4 2.1C2.6 9.9 2.6 10.3 2.6 12s0 2.1.1 3.3c.1 1.1.2 1.7.4 2.1.2.5.4.9.8 1.3.4.4.8.6 1.3.8.4.2 1 .3 2.1.4 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.4 1.3-.8.4-.4.6-.8.8-1.3.2-.4.3-1 .4-2.1.1-1.2.1-1.6.1-3.3s0-2.1-.1-3.3c-.1-1.1-.2-1.7-.4-2.1-.2-.5-.4-.9-.8-1.3-.4-.4-.8-.6-1.3-.8-.4-.2-1-.3-2.1-.4C15.5 4 15.1 4 12 4zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8zm0 8.1a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4zm5.1-8.3a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z" />
               </svg>
-              Falar no WhatsApp
-            </span>
-          </a>
+            </a>
+
+            <a
+              href={WHATSAPP}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative inline-block overflow-hidden rounded-md p-[1.5px]"
+            >
+              <span className="pointer-events-none absolute inset-[-50%] animate-[spin_4s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0%,var(--primary)_15%,var(--accent)_30%,transparent_45%,transparent_55%,var(--primary)_70%,var(--accent)_85%,transparent_100%)]" />
+              <span className="relative flex items-center gap-2 rounded-[5px] bg-secondary px-4 py-2 text-sm font-medium text-white transition-colors group-hover:bg-secondary/90">
+                <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current" aria-hidden>
+                  <path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9s-.5-.1-.7.1c-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.3 5.2 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.7.5 3.4 1.3 4.8L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z" />
+                </svg>
+                <span className="hidden sm:inline">Falar no WhatsApp</span>
+              </span>
+            </a>
+          </div>
         </div>
+
       </header>
 
       {/* HERO BANNER */}
@@ -153,7 +189,7 @@ function Landing() {
       </section>
 
       {/* VERDADE / SERVIÇOS */}
-      <section className="bg-background">
+      <section id="servicos" className="bg-background scroll-mt-24">
         <div className="mx-auto max-w-6xl px-6 py-24">
           <Reveal className="mx-auto max-w-3xl text-center">
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
@@ -205,7 +241,7 @@ function Landing() {
       </section>
 
       {/* SOBRE - dark navy band */}
-      <section className="relative overflow-hidden" style={{ backgroundImage: "var(--gradient-navy)" }}>
+      <section id="sobre" className="relative overflow-hidden scroll-mt-24" style={{ backgroundImage: "var(--gradient-navy)" }}>
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-24 md:grid-cols-[1fr_1.3fr]">
           <Reveal>
             <div className="relative">
@@ -295,7 +331,7 @@ function Landing() {
       </section>
 
       {/* RESULTADOS */}
-      <section className="bg-muted">
+      <section id="resultados" className="bg-muted scroll-mt-24">
         <div className="mx-auto max-w-5xl px-6 py-24 text-center">
           <Reveal>
             <h2 className="text-3xl font-bold sm:text-4xl">
@@ -329,7 +365,7 @@ function Landing() {
       </section>
 
       {/* MATERIAIS GRATUITOS */}
-      <section className="bg-background">
+      <section id="materiais" className="bg-background scroll-mt-24">
         <div className="mx-auto max-w-6xl px-6 py-24">
           <Reveal className="text-center">
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
