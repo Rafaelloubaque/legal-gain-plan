@@ -81,7 +81,7 @@ function Landing() {
           <img
             src={logo}
             alt="EDXCont Contabilidade"
-            className={`w-auto transition-all duration-500 ${scrolled ? "h-8" : "h-10"} ${scrolled ? "" : "brightness-0 invert"}`}
+            className={`w-auto transition-all duration-500 ${scrolled ? "h-12" : "h-16"} ${scrolled ? "" : "brightness-0 invert"}`}
           />
 
           <nav className="hidden items-center gap-8 md:flex">
@@ -169,15 +169,15 @@ function Landing() {
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-white/90">
               <span className="flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                <span className="dot-pulse h-2 w-2 rounded-full" />
                 Planejamento tributário na prática
               </span>
               <span className="flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                <span className="dot-pulse h-2 w-2 rounded-full" />
                 Diagnóstico gratuito
               </span>
               <span className="flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                <span className="dot-pulse h-2 w-2 rounded-full" />
                 Atendimento direto com contador
               </span>
             </div>
@@ -205,12 +205,22 @@ function Landing() {
         </div>
       </section>
 
-      {/* SERVICE STRIP */}
-      <section className="border-y border-border bg-muted">
-        <div className="mx-auto max-w-6xl px-6 py-6 text-center text-xs font-medium uppercase tracking-[0.25em] text-muted-foreground">
-          Contábil · Fiscal · Legalizações · Departamento Pessoal · Folha de Pagamento
+      {/* SERVICE STRIP - infinite marquee */}
+      <section className="overflow-hidden border-y border-border bg-muted">
+        <div className="flex w-max gap-12 whitespace-nowrap py-5 text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground [animation:marquee_35s_linear_infinite]">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <div key={i} className="flex shrink-0 items-center gap-12 pr-12">
+              {["Contábil", "Fiscal", "Legalizações", "Departamento Pessoal", "Folha de Pagamento"].map((t) => (
+                <span key={t} className="flex items-center gap-12">
+                  {t}
+                  <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                </span>
+              ))}
+            </div>
+          ))}
         </div>
       </section>
+
 
       {/* VERDADE / SERVIÇOS */}
       <section id="servicos" className="bg-background scroll-mt-24">
@@ -293,7 +303,7 @@ function Landing() {
             <ul className="mt-5 space-y-3 text-white">
               {["Organizar a empresa", "Entender exatamente quanto estão pagando", "Reduzir impostos de forma legal"].map((t) => (
                 <li key={t} className="flex items-start gap-3">
-                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-accent" />
+                  <span className="mt-2 dot-pulse h-2 w-2 rounded-full" />
                   {t}
                 </li>
               ))}
@@ -446,7 +456,7 @@ function Landing() {
       {/* FOOTER */}
       <footer className="border-t border-border bg-background">
         <div className="mx-auto max-w-5xl space-y-4 px-6 py-12 text-center">
-          <img src={logo} alt="EDXCont" className="mx-auto h-9 w-auto" />
+          <img src={logo} alt="EDXCont" className="mx-auto h-16 w-auto" />
           <p className="text-xs text-muted-foreground">
             © 2026 EDXCont Contabilidade LTDA | CNPJ: 39.566.457/0001-01 – Todos os direitos
             reservados
