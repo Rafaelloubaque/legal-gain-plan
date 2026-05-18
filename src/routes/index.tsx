@@ -169,15 +169,15 @@ function Landing() {
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-white/90">
               <span className="flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                <span className="dot-pulse h-2 w-2 rounded-full" />
                 Planejamento tributário na prática
               </span>
               <span className="flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                <span className="dot-pulse h-2 w-2 rounded-full" />
                 Diagnóstico gratuito
               </span>
               <span className="flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                <span className="dot-pulse h-2 w-2 rounded-full" />
                 Atendimento direto com contador
               </span>
             </div>
@@ -303,7 +303,7 @@ function Landing() {
             <ul className="mt-5 space-y-3 text-white">
               {["Organizar a empresa", "Entender exatamente quanto estão pagando", "Reduzir impostos de forma legal"].map((t) => (
                 <li key={t} className="flex items-start gap-3">
-                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-accent" />
+                  <span className="mt-2 dot-pulse h-2 w-2 rounded-full" />
                   {t}
                 </li>
               ))}
