@@ -59,25 +59,49 @@ function CTA({
 }
 
 function Landing() {
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* NAV */}
-      <header className="sticky top-0 z-40 border-b border-border bg-background/85 backdrop-blur">
+      {/* NAV - overlay on banner, dark on scroll */}
+      <header
+        className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
+          scrolled
+            ? "border-b border-white/10 bg-secondary/95 backdrop-blur-md shadow-[var(--shadow-elegant)]"
+            : "border-b border-transparent bg-transparent"
+        }`}
+      >
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <img src={logo} alt="EDXCont Contabilidade" className="h-9 w-auto" />
+          <img
+            src={logo}
+            alt="EDXCont Contabilidade"
+            className={`w-auto transition-all duration-500 ${scrolled ? "h-8" : "h-10"} ${scrolled ? "" : "brightness-0 invert"}`}
+          />
           <a
             href={WHATSAPP}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden rounded-md bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground transition-colors hover:opacity-90 sm:inline-block"
+            className="group relative hidden overflow-hidden rounded-md p-[1.5px] sm:inline-block"
           >
-            Falar no WhatsApp
+            <span className="pointer-events-none absolute inset-[-50%] animate-[spin_4s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0%,var(--primary)_15%,var(--accent)_30%,transparent_45%,transparent_55%,var(--primary)_70%,var(--accent)_85%,transparent_100%)]" />
+            <span className="relative flex items-center gap-2 rounded-[5px] bg-secondary px-4 py-2 text-sm font-medium text-white transition-colors group-hover:bg-secondary/90">
+              <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current" aria-hidden>
+                <path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9s-.5-.1-.7.1c-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.3 5.2 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.7.5 3.4 1.3 4.8L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z" />
+              </svg>
+              Falar no WhatsApp
+            </span>
           </a>
         </div>
       </header>
 
       {/* HERO BANNER */}
-      <section className="relative isolate overflow-hidden">
+      <section className="relative isolate -mt-px overflow-hidden">
         <img
           src={heroBanner}
           alt="Consultoria contábil corporativa"
@@ -89,7 +113,7 @@ function Landing() {
           className="absolute inset-0"
           style={{ backgroundImage: "var(--gradient-hero-overlay)" }}
         />
-        <div className="relative mx-auto grid min-h-[640px] max-w-6xl items-center px-6 py-24">
+        <div className="relative mx-auto grid min-h-[720px] max-w-6xl items-center px-6 pb-24 pt-36">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
