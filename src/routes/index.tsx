@@ -71,6 +71,7 @@ function Landing() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <SplashScreen />
       {/* NAV - overlay on banner, dark on scroll */}
       <header
         className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
