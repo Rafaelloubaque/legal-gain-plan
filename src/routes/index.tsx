@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import logo from "@/assets/edxcont-logo.png";
 import heroBanner from "@/assets/hero-banner.jpg";
 import eduardoPortrait from "@/assets/eduardo-portrait.jpg";
