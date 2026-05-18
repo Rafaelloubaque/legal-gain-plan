@@ -149,35 +149,60 @@ function Landing() {
           className="absolute inset-0"
           style={{ backgroundImage: "var(--gradient-hero-overlay)" }}
         />
-        <div className="relative mx-auto grid min-h-[560px] max-w-6xl items-center px-6 py-0">
+        <div className="relative mx-auto grid min-h-[100svh] max-w-6xl items-center px-6 pb-20 pt-32">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            className="max-w-2xl text-white"
+            className="max-w-3xl text-white"
           >
-            <span className="inline-block rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] backdrop-blur">
+            <span className="inline-block rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.25em] backdrop-blur">
               Contabilidade Estratégica
             </span>
-            <h1 className="mt-6 text-balance text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl md:text-6xl">
+            <h1 className="mt-8 text-balance text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl md:text-7xl">
               Reduza seus impostos de forma legal e{" "}
               <span className="text-accent">pare de perder dinheiro todos os meses!</span>
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/85">
+            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/85 md:text-xl">
               Se você é prestador de serviço, profissional da saúde ou dono de empresa, existe
               uma forma mais inteligente de pagar impostos, e a maioria não faz ideia disso.
             </p>
-            <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-white/90">
-              <span>Planejamento tributário na prática</span>
-              <span className="text-accent">|</span>
-              <span>Diagnóstico gratuito</span>
-              <span className="text-accent">|</span>
-              <span>Atendimento direto com contador</span>
+            <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-white/90">
+              <span className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                Planejamento tributário na prática
+              </span>
+              <span className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                Diagnóstico gratuito
+              </span>
+              <span className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                Atendimento direto com contador
+              </span>
             </div>
-            <div className="mt-10">
+            <div className="mt-12 flex flex-wrap items-center gap-4">
               <CTA>CONVERSE COMIGO NO WHATSAPP</CTA>
+              <a
+                href="#servicos"
+                className="text-sm font-medium text-white/80 underline-offset-4 transition-colors hover:text-white hover:underline"
+              >
+                Ver nossos serviços →
+              </a>
             </div>
           </motion.div>
+
+          {/* scroll indicator */}
+          <div className="pointer-events-none absolute inset-x-0 bottom-8 flex justify-center">
+            <div className="flex h-10 w-6 items-start justify-center rounded-full border border-white/40 p-1.5">
+              <motion.span
+                className="h-1.5 w-1 rounded-full bg-white/80"
+                animate={{ y: [0, 12, 0], opacity: [1, 0.2, 1] }}
+                transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+              />
+            </div>
+          </div>
+        </div>
         </div>
       </section>
 
