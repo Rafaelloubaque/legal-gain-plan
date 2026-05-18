@@ -205,12 +205,22 @@ function Landing() {
         </div>
       </section>
 
-      {/* SERVICE STRIP */}
-      <section className="border-y border-border bg-muted">
-        <div className="mx-auto max-w-6xl px-6 py-6 text-center text-xs font-medium uppercase tracking-[0.25em] text-muted-foreground">
-          Contábil · Fiscal · Legalizações · Departamento Pessoal · Folha de Pagamento
+      {/* SERVICE STRIP - infinite marquee */}
+      <section className="overflow-hidden border-y border-border bg-muted">
+        <div className="flex w-max gap-12 whitespace-nowrap py-5 text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground [animation:marquee_35s_linear_infinite]">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <div key={i} className="flex shrink-0 items-center gap-12 pr-12">
+              {["Contábil", "Fiscal", "Legalizações", "Departamento Pessoal", "Folha de Pagamento"].map((t) => (
+                <span key={t} className="flex items-center gap-12">
+                  {t}
+                  <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                </span>
+              ))}
+            </div>
+          ))}
         </div>
       </section>
+
 
       {/* VERDADE / SERVIÇOS */}
       <section id="servicos" className="bg-background scroll-mt-24">
