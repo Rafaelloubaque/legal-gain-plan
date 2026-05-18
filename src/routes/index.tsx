@@ -113,7 +113,7 @@ function Landing() {
           className="absolute inset-0"
           style={{ backgroundImage: "var(--gradient-hero-overlay)" }}
         />
-        <div className="relative mx-auto grid min-h-[720px] max-w-6xl items-center px-6 pb-24 pt-36">
+        <div className="relative mx-auto grid min-h-[600px] max-w-6xl items-center px-6 pb-12 pt-24">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
