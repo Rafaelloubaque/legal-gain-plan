@@ -189,7 +189,7 @@ function Landing() {
       </section>
 
       {/* VERDADE / SERVIÇOS */}
-      <section className="bg-background">
+      <section id="servicos" className="bg-background scroll-mt-24">
         <div className="mx-auto max-w-6xl px-6 py-24">
           <Reveal className="mx-auto max-w-3xl text-center">
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
@@ -241,7 +241,7 @@ function Landing() {
       </section>
 
       {/* SOBRE - dark navy band */}
-      <section className="relative overflow-hidden" style={{ backgroundImage: "var(--gradient-navy)" }}>
+      <section id="sobre" className="relative overflow-hidden scroll-mt-24" style={{ backgroundImage: "var(--gradient-navy)" }}>
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-24 md:grid-cols-[1fr_1.3fr]">
           <Reveal>
             <div className="relative">
@@ -331,7 +331,7 @@ function Landing() {
       </section>
 
       {/* RESULTADOS */}
-      <section className="bg-muted">
+      <section id="resultados" className="bg-muted scroll-mt-24">
         <div className="mx-auto max-w-5xl px-6 py-24 text-center">
           <Reveal>
             <h2 className="text-3xl font-bold sm:text-4xl">
@@ -365,7 +365,7 @@ function Landing() {
       </section>
 
       {/* MATERIAIS GRATUITOS */}
-      <section className="bg-background">
+      <section id="materiais" className="bg-background scroll-mt-24">
         <div className="mx-auto max-w-6xl px-6 py-24">
           <Reveal className="text-center">
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
