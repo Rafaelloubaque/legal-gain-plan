@@ -1,5 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { motion } from "framer-motion";
 import logo from "@/assets/edxcont-logo.png";
+import heroBanner from "@/assets/hero-banner.jpg";
+import eduardoPortrait from "@/assets/eduardo-portrait.jpg";
+import strategyImg from "@/assets/strategy.jpg";
+import { Reveal } from "@/components/Reveal";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -24,282 +29,344 @@ export const Route = createFileRoute("/")({
 const WHATSAPP = "https://wa.me/5500000000000"; // ADICIONAR NÚMERO
 const LINK_MATERIAL = "#"; // ADICIONAR LINK
 
-function CTA({ children, href = WHATSAPP }: { children: React.ReactNode; href?: string }) {
+function CTA({
+  children,
+  href = WHATSAPP,
+  variant = "primary",
+}: {
+  children: React.ReactNode;
+  href?: string;
+  variant?: "primary" | "outline";
+}) {
+  const base =
+    "inline-flex items-center justify-center rounded-md px-7 py-3.5 text-sm font-semibold tracking-wide transition-all hover:-translate-y-0.5";
+  const styles =
+    variant === "primary"
+      ? "text-primary-foreground hover:shadow-[var(--shadow-elegant)]"
+      : "border border-primary text-primary hover:bg-primary hover:text-primary-foreground";
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-semibold tracking-wide text-primary-foreground transition-all hover:scale-[1.02] hover:shadow-[0_20px_60px_-20px_var(--primary)]"
-      style={{ backgroundImage: "var(--gradient-primary)" }}
+      className={`${base} ${styles}`}
+      style={variant === "primary" ? { backgroundImage: "var(--gradient-primary)" } : undefined}
     >
       {children}
     </a>
   );
 }
 
-function SectionDivider() {
-  return (
-    <div className="mx-auto my-20 h-px w-24 bg-gradient-to-r from-transparent via-primary to-transparent" />
-  );
-}
-
 function Landing() {
   return (
-    <div className="min-h-screen" style={{ background: "var(--gradient-hero)" }}>
+    <div className="min-h-screen bg-background text-foreground">
       {/* NAV */}
-      <header className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
-        <img src={logo} alt="EDXCont Contabilidade" className="h-10 w-auto" />
-        <a
-          href={WHATSAPP}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden rounded-full border border-primary/40 px-5 py-2 text-sm font-medium text-primary transition-colors hover:bg-primary/10 sm:inline-block"
-        >
-          Falar no WhatsApp
-        </a>
+      <header className="sticky top-0 z-40 border-b border-border bg-background/85 backdrop-blur">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+          <img src={logo} alt="EDXCont Contabilidade" className="h-9 w-auto" />
+          <a
+            href={WHATSAPP}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden rounded-md bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground transition-colors hover:opacity-90 sm:inline-block"
+          >
+            Falar no WhatsApp
+          </a>
+        </div>
       </header>
 
-      {/* HERO */}
-      <section className="mx-auto max-w-5xl px-6 pb-24 pt-16 text-center">
-        <h1 className="text-balance text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl md:text-6xl">
-          Reduza seus impostos de forma legal e pare{" "}
-          <span
-            className="bg-clip-text text-transparent"
-            style={{ backgroundImage: "var(--gradient-primary)" }}
+      {/* HERO BANNER */}
+      <section className="relative isolate overflow-hidden">
+        <img
+          src={heroBanner}
+          alt="Consultoria contábil corporativa"
+          width={1920}
+          height={1080}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div
+          className="absolute inset-0"
+          style={{ backgroundImage: "var(--gradient-hero-overlay)" }}
+        />
+        <div className="relative mx-auto grid min-h-[640px] max-w-6xl items-center px-6 py-24">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            className="max-w-2xl text-white"
           >
-            de perder dinheiro todos os meses!
-          </span>
-        </h1>
-
-        <p className="mx-auto mt-8 max-w-3xl text-lg leading-relaxed text-muted-foreground">
-          Se você é prestador de serviço, profissional da saúde ou dono de empresa, existe uma
-          forma mais inteligente de pagar impostos, e a maioria não faz ideia disso.
-        </p>
-
-        <div className="mx-auto mt-10 flex max-w-3xl flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-foreground/80">
-          <span>Planejamento tributário na prática</span>
-          <span className="text-primary">|</span>
-          <span>Diagnóstico gratuito do seu negócio</span>
-          <span className="text-primary">|</span>
-          <span>Atendimento direto com contador</span>
-        </div>
-
-        <div className="mt-12">
-          <CTA>CONVERSE COMIGO NO WHATSAPP</CTA>
-        </div>
-
-        <p className="mt-16 text-sm uppercase tracking-[0.3em] text-primary/80">
-          Contábil · Fiscal · Legalizações · Departamento Pessoal · Folha de Pagamento
-        </p>
-      </section>
-
-      {/* SERVIÇOS */}
-      <section className="mx-auto max-w-5xl px-6 py-20">
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            A verdade é simples.
-          </h2>
-          <p className="mt-6 text-lg text-muted-foreground">
-            A maioria dos empresários paga mais imposto do que deveria. Não porque querem, mas
-            porque nunca tiveram alguém que realmente olhasse o negócio com estratégia.
-          </p>
-          <p className="mt-6 text-foreground">
-            Oferecemos suporte contábil completo para sua operação:
-          </p>
-        </div>
-
-        <div className="mt-14 grid gap-5 md:grid-cols-2">
-          {[
-            {
-              t: "Contabilidade Completa",
-              d: "Registro, organização e acompanhamento contábil da sua empresa com mais clareza e segurança.",
-            },
-            {
-              t: "Abertura e Regularização de Empresas",
-              d: "Orientação completa para abrir seu CNPJ ou colocar sua empresa em dia.",
-            },
-            {
-              t: "Planejamento Tributário",
-              d: "Análise do regime ideal para reduzir legalmente a carga tributária e evitar pagamentos desnecessários.",
-            },
-            {
-              t: "Gestão Fiscal e Obrigações Legais",
-              d: "Apuração de impostos, envio de declarações e cumprimento das exigências fiscais.",
-            },
-            {
-              t: "Folha de Pagamento",
-              d: "Administração das rotinas trabalhistas e obrigações ligadas aos seus colaboradores.",
-            },
-            {
-              t: "Prestadores de Serviço e Área da Saúde",
-              d: "Soluções pensadas para quem precisa pagar menos imposto e ter uma estrutura mais inteligente.",
-            },
-          ].map((s) => (
-            <div
-              key={s.t}
-              className="group rounded-2xl border border-border bg-card/60 p-6 backdrop-blur transition-colors hover:border-primary/50"
-            >
-              <div className="mb-3 flex items-center gap-3">
-                <span className="h-2 w-2 rounded-full bg-primary shadow-[0_0_12px_var(--primary)]" />
-                <h3 className="font-semibold text-foreground">{s.t}</h3>
-              </div>
-              <p className="text-sm leading-relaxed text-muted-foreground">{s.d}</p>
-            </div>
-          ))}
-        </div>
-
-        <div className="mx-auto mt-16 max-w-3xl text-center">
-          <p className="text-lg italic text-foreground/90">
-            Contabilidade não é só "cumprir obrigação". É sobre pagar o mínimo possível dentro da
-            lei e crescer com segurança.
-          </p>
-          <div className="mt-10">
-            <CTA>ME DEIXE ANALISAR SEU NEGÓCIO</CTA>
-          </div>
-        </div>
-      </section>
-
-      <SectionDivider />
-
-      {/* SOBRE */}
-      <section className="mx-auto max-w-4xl px-6 py-16">
-        <div className="grid items-center gap-12 md:grid-cols-[1fr_1.4fr]">
-          <div className="flex aspect-square items-center justify-center rounded-3xl border border-primary/30 bg-card/40 p-10">
-            <div
-              className="flex h-full w-full items-center justify-center rounded-2xl text-5xl font-bold text-primary-foreground"
-              style={{ backgroundImage: "var(--gradient-primary)" }}
-            >
-              EO
-            </div>
-          </div>
-          <div>
-            <p className="text-sm uppercase tracking-[0.3em] text-primary">
-              Eu vou resolver seus problemas…
+            <span className="inline-block rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] backdrop-blur">
+              Contabilidade Estratégica
+            </span>
+            <h1 className="mt-6 text-balance text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl md:text-6xl">
+              Reduza seus impostos de forma legal e{" "}
+              <span className="text-accent">pare de perder dinheiro todos os meses!</span>
+            </h1>
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/85">
+              Se você é prestador de serviço, profissional da saúde ou dono de empresa, existe
+              uma forma mais inteligente de pagar impostos, e a maioria não faz ideia disso.
             </p>
-            <h2 className="mt-4 text-3xl font-bold text-foreground sm:text-4xl">
+            <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-white/90">
+              <span>Planejamento tributário na prática</span>
+              <span className="text-accent">|</span>
+              <span>Diagnóstico gratuito</span>
+              <span className="text-accent">|</span>
+              <span>Atendimento direto com contador</span>
+            </div>
+            <div className="mt-10">
+              <CTA>CONVERSE COMIGO NO WHATSAPP</CTA>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* SERVICE STRIP */}
+      <section className="border-y border-border bg-muted">
+        <div className="mx-auto max-w-6xl px-6 py-6 text-center text-xs font-medium uppercase tracking-[0.25em] text-muted-foreground">
+          Contábil · Fiscal · Legalizações · Departamento Pessoal · Folha de Pagamento
+        </div>
+      </section>
+
+      {/* VERDADE / SERVIÇOS */}
+      <section className="bg-background">
+        <div className="mx-auto max-w-6xl px-6 py-24">
+          <Reveal className="mx-auto max-w-3xl text-center">
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
+              Nossa abordagem
+            </span>
+            <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
+              A verdade é simples.
+            </h2>
+            <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+              A maioria dos empresários paga mais imposto do que deveria. Não porque querem, mas
+              porque nunca tiveram alguém que realmente olhasse o negócio com estratégia.
+            </p>
+            <p className="mt-4 font-medium text-foreground">
+              Oferecemos suporte contábil completo para sua operação:
+            </p>
+          </Reveal>
+
+          <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {[
+              { t: "Contabilidade Completa", d: "Registro, organização e acompanhamento contábil da sua empresa com mais clareza e segurança." },
+              { t: "Abertura e Regularização", d: "Orientação completa para abrir seu CNPJ ou colocar sua empresa em dia." },
+              { t: "Planejamento Tributário", d: "Análise do regime ideal para reduzir legalmente a carga tributária e evitar pagamentos desnecessários." },
+              { t: "Gestão Fiscal", d: "Apuração de impostos, envio de declarações e cumprimento das exigências fiscais." },
+              { t: "Folha de Pagamento", d: "Administração das rotinas trabalhistas e obrigações ligadas aos seus colaboradores." },
+              { t: "Saúde e Prestadores", d: "Soluções pensadas para quem precisa pagar menos imposto e ter uma estrutura mais inteligente." },
+            ].map((s, i) => (
+              <Reveal key={s.t} delay={i * 0.05}>
+                <div className="group h-full rounded-xl border border-border bg-card p-7 shadow-[var(--shadow-soft)] transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-[var(--shadow-elegant)]">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                    <span className="text-base font-bold">0{((i % 9) + 1)}</span>
+                  </div>
+                  <h3 className="mt-5 text-lg font-semibold text-foreground">{s.t}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.d}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal className="mx-auto mt-16 max-w-3xl text-center">
+            <p className="border-l-2 border-primary pl-6 text-left text-lg italic text-foreground/90">
+              Contabilidade não é só "cumprir obrigação". É sobre pagar o mínimo possível dentro
+              da lei e crescer com segurança.
+            </p>
+            <div className="mt-10">
+              <CTA>ME DEIXE ANALISAR SEU NEGÓCIO</CTA>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* SOBRE - dark navy band */}
+      <section className="relative overflow-hidden" style={{ backgroundImage: "var(--gradient-navy)" }}>
+        <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-24 md:grid-cols-[1fr_1.3fr]">
+          <Reveal>
+            <div className="relative">
+              <div className="absolute -inset-4 rounded-2xl bg-primary/20 blur-2xl" />
+              <img
+                src={eduardoPortrait}
+                alt="Eduardo Oliveira, contador"
+                width={1024}
+                height={1024}
+                loading="lazy"
+                className="relative aspect-square w-full rounded-2xl object-cover shadow-2xl"
+              />
+            </div>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-accent">
+              Eu vou resolver seus problemas…
+            </span>
+            <h2 className="mt-4 text-3xl font-bold leading-tight text-white sm:text-4xl">
               Sou o Eduardo Oliveira, contador e responsável pela EDXCont.
             </h2>
-            <p className="mt-6 text-muted-foreground">
+            <p className="mt-6 text-white/80">
               Hoje ajudo prestadores de serviço, clínicas e profissionais da saúde a:
             </p>
-            <ul className="mt-4 space-y-2 text-foreground">
-              <li>• Organizar a empresa</li>
-              <li>• Entender exatamente quanto estão pagando</li>
-              <li>• Reduzir impostos de forma legal</li>
+            <ul className="mt-5 space-y-3 text-white">
+              {["Organizar a empresa", "Entender exatamente quanto estão pagando", "Reduzir impostos de forma legal"].map((t) => (
+                <li key={t} className="flex items-start gap-3">
+                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-accent" />
+                  {t}
+                </li>
+              ))}
             </ul>
-            <p className="mt-6 text-muted-foreground">
+            <p className="mt-8 text-white/80">
               Aqui, a contabilidade não é burocracia.
               <br />
-              <span className="text-foreground">É ferramenta de crescimento.</span>
+              <span className="font-semibold text-white">É ferramenta de crescimento.</span>
             </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* O QUE PREPARAMOS */}
+      <section className="bg-background">
+        <div className="mx-auto max-w-6xl px-6 py-24">
+          <Reveal className="mx-auto max-w-3xl text-center">
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
+              O que entregamos
+            </span>
+            <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
+              Aqui na EDXCont nós preparamos para você:
+            </h2>
+          </Reveal>
+
+          <div className="mt-14 grid gap-10 md:grid-cols-[1.1fr_1fr] md:items-center">
+            <Reveal>
+              <img
+                src={strategyImg}
+                alt="Planejamento contábil estratégico"
+                width={1280}
+                height={896}
+                loading="lazy"
+                className="aspect-[4/3] w-full rounded-2xl object-cover shadow-[var(--shadow-elegant)]"
+              />
+            </Reveal>
+            <div className="space-y-5">
+              {[
+                ["Planejamento Tributário", "Você entende exatamente o melhor regime pra pagar menos imposto"],
+                ["Diagnóstico Inicial", "Analisamos sua situação atual e mostramos onde está perdendo dinheiro"],
+                ["Acompanhamento Contábil", "Não é só abrir empresa, é cuidar dela todos os meses"],
+                ["Atendimento direto", "Sem enrolação, sem atendimento genérico"],
+              ].map(([t, d], i) => (
+                <Reveal key={t} delay={i * 0.08}>
+                  <div className="flex gap-4 rounded-xl border border-border bg-card p-5 shadow-[var(--shadow-soft)]">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary/10 font-bold text-primary">
+                      0{i + 1}
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-foreground">{t}</h3>
+                      <p className="mt-1 text-sm text-muted-foreground">{d}</p>
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      <SectionDivider />
-
-      {/* O QUE PREPARAMOS */}
-      <section className="mx-auto max-w-5xl px-6 py-16">
-        <h2 className="text-center text-3xl font-bold text-foreground sm:text-4xl">
-          Aqui na EDXCont nós preparamos para você:
-        </h2>
-        <div className="mt-12 grid gap-5 md:grid-cols-2">
-          {[
-            ["Planejamento Tributário", "Você entende exatamente o melhor regime pra pagar menos imposto"],
-            ["Diagnóstico Inicial", "Analisamos sua situação atual e mostramos onde está perdendo dinheiro"],
-            ["Acompanhamento Contábil", "Não é só abrir empresa, é cuidar dela todos os meses"],
-            ["Atendimento direto", "Sem enrolação, sem atendimento genérico"],
-          ].map(([t, d]) => (
-            <div key={t} className="rounded-2xl border border-border bg-card/60 p-6">
-              <h3 className="text-lg font-semibold text-primary">{t}</h3>
-              <p className="mt-2 text-muted-foreground">{d}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <SectionDivider />
-
       {/* RESULTADOS */}
-      <section className="mx-auto max-w-4xl px-6 py-16 text-center">
-        <h2 className="text-3xl font-bold text-foreground sm:text-4xl">
-          Empresas que trabalham com estratégia tributária conseguem:
-        </h2>
-        <div className="mt-10 grid gap-6 sm:grid-cols-3">
-          {["Reduzir custos", "Ter previsibilidade financeira", "Crescer com mais segurança"].map(
-            (t) => (
-              <div
-                key={t}
-                className="rounded-2xl border border-primary/30 bg-card/40 px-4 py-8 text-lg font-medium text-foreground"
+      <section className="bg-muted">
+        <div className="mx-auto max-w-5xl px-6 py-24 text-center">
+          <Reveal>
+            <h2 className="text-3xl font-bold sm:text-4xl">
+              Empresas que trabalham com estratégia tributária conseguem:
+            </h2>
+          </Reveal>
+          <div className="mt-12 grid gap-6 sm:grid-cols-3">
+            {["Reduzir custos", "Ter previsibilidade financeira", "Crescer com mais segurança"].map(
+              (t, i) => (
+                <Reveal key={t} delay={i * 0.1}>
+                  <div className="rounded-2xl border border-border bg-card px-6 py-10 text-lg font-semibold text-foreground shadow-[var(--shadow-soft)]">
+                    {t}
+                  </div>
+                </Reveal>
+              ),
+            )}
+          </div>
+          <Reveal delay={0.2} className="mt-14">
+            <p className="text-xl text-foreground">
+              A diferença não está no quanto você fatura.
+              <br />
+              <span
+                className="bg-clip-text font-bold text-transparent"
+                style={{ backgroundImage: "var(--gradient-primary)" }}
               >
-                {t}
-              </div>
-            ),
-          )}
+                Está no quanto você consegue manter.
+              </span>
+            </p>
+          </Reveal>
         </div>
-        <p className="mt-12 text-xl text-foreground">
-          A diferença não está no quanto você fatura.
-          <br />
-          <span
-            className="bg-clip-text font-semibold text-transparent"
-            style={{ backgroundImage: "var(--gradient-primary)" }}
-          >
-            Está no quanto você consegue manter.
-          </span>
-        </p>
       </section>
-
-      <SectionDivider />
 
       {/* MATERIAIS GRATUITOS */}
-      <section className="mx-auto max-w-5xl px-6 py-16">
-        <h2 className="text-center text-3xl font-bold text-foreground sm:text-4xl">
-          Comece agora com materiais gratuitos
-        </h2>
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {[
-            { t: "Planejamento Simplificado", d: "Aprenda o básico para organizar sua empresa" },
-            { t: "Receita Saúde", d: "Entenda como funciona a tributação para profissionais da saúde" },
-            { t: "Planilhas para MEI", d: "Controle financeiro simples e prático" },
-          ].map((m) => (
-            <div
-              key={m.t}
-              className="flex flex-col rounded-2xl border border-border bg-card/60 p-6"
-            >
-              <h3 className="text-lg font-semibold text-foreground">{m.t}</h3>
-              <p className="mt-2 flex-1 text-sm text-muted-foreground">{m.d}</p>
-              <a
-                href={LINK_MATERIAL}
-                className="mt-6 inline-flex items-center justify-center rounded-full border border-primary px-5 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
-              >
-                ACESSAR AGORA
-              </a>
-            </div>
-          ))}
+      <section className="bg-background">
+        <div className="mx-auto max-w-6xl px-6 py-24">
+          <Reveal className="text-center">
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
+              Recursos gratuitos
+            </span>
+            <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
+              Comece agora com materiais gratuitos
+            </h2>
+          </Reveal>
+          <div className="mt-14 grid gap-6 md:grid-cols-3">
+            {[
+              { t: "Planejamento Simplificado", d: "Aprenda o básico para organizar sua empresa" },
+              { t: "Receita Saúde", d: "Entenda como funciona a tributação para profissionais da saúde" },
+              { t: "Planilhas para MEI", d: "Controle financeiro simples e prático" },
+            ].map((m, i) => (
+              <Reveal key={m.t} delay={i * 0.1}>
+                <div className="flex h-full flex-col rounded-2xl border border-border bg-card p-7 shadow-[var(--shadow-soft)] transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-elegant)]">
+                  <div className="h-1 w-12 rounded-full" style={{ backgroundImage: "var(--gradient-primary)" }} />
+                  <h3 className="mt-5 text-lg font-semibold text-foreground">{m.t}</h3>
+                  <p className="mt-2 flex-1 text-sm text-muted-foreground">{m.d}</p>
+                  <a
+                    href={LINK_MATERIAL}
+                    className="mt-6 inline-flex items-center justify-center rounded-md border border-primary px-5 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+                  >
+                    ACESSAR AGORA
+                  </a>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* CTA FINAL */}
-      <section className="mx-auto max-w-3xl px-6 py-24 text-center">
-        <p className="text-sm uppercase tracking-[0.3em] text-primary">Vamos conversar?</p>
-        <h2 className="mt-4 text-3xl font-bold text-foreground sm:text-4xl">
-          Seu Negócio Precisa de uma Contabilidade Profissional
-        </h2>
-        <div className="mt-10">
-          <CTA>ME DEIXE ANALISAR SEU NEGÓCIO</CTA>
+      <section className="relative overflow-hidden" style={{ backgroundImage: "var(--gradient-navy)" }}>
+        <div className="mx-auto max-w-3xl px-6 py-24 text-center">
+          <Reveal>
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-accent">
+              Vamos conversar?
+            </span>
+            <h2 className="mt-4 text-3xl font-bold text-white sm:text-4xl">
+              Seu negócio precisa de uma contabilidade profissional
+            </h2>
+            <p className="mt-5 text-white/75">
+              Diagnóstico gratuito e direto com o contador responsável.
+            </p>
+            <div className="mt-10">
+              <CTA>ME DEIXE ANALISAR SEU NEGÓCIO</CTA>
+            </div>
+          </Reveal>
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-border bg-card/40">
-        <div className="mx-auto max-w-5xl space-y-4 px-6 py-10 text-center">
-          <img src={logo} alt="EDXCont" className="mx-auto h-8 w-auto opacity-80" />
+      <footer className="border-t border-border bg-background">
+        <div className="mx-auto max-w-5xl space-y-4 px-6 py-12 text-center">
+          <img src={logo} alt="EDXCont" className="mx-auto h-9 w-auto" />
           <p className="text-xs text-muted-foreground">
             © 2026 EDXCont Contabilidade LTDA | CNPJ: 39.566.457/0001-01 – Todos os direitos
             reservados
           </p>
-          <p className="mx-auto max-w-3xl text-xs leading-relaxed text-muted-foreground/80">
+          <p className="mx-auto max-w-3xl text-xs leading-relaxed text-muted-foreground">
             Este site não é afiliado, endossado, patrocinado ou administrado por Facebook,
             Instagram, TikTok, LinkedIn ou qualquer uma de suas empresas controladoras. Todas as
             marcas pertencem aos seus respectivos proprietários. Ao acessar este site, você
