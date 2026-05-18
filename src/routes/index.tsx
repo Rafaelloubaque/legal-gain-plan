@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Instagram, MessageCircle, ArrowUpRight } from "lucide-react";
 import logo from "@/assets/edxcont-logo.png";
 import heroBanner from "@/assets/hero-banner.jpg";
-import eduardoPortrait from "@/assets/eduardo-portrait.jpg";
+import eduardoPortrait from "@/assets/eduardo-portrait.png";
 import strategyImg from "@/assets/strategy.jpg";
 import { Reveal } from "@/components/Reveal";
 import { SplashScreen } from "@/components/SplashScreen";
