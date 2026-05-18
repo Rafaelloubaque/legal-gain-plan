@@ -72,14 +72,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "EDX" },
+      { name: "description", content: "Imposto Inteligente helps service providers, healthcare professionals, and business owners legally reduce taxes and optimize finances." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "EDX" },
+      { property: "og:description", content: "Imposto Inteligente helps service providers, healthcare professionals, and business owners legally reduce taxes and optimize finances." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "EDX" },
+      { name: "twitter:description", content: "Imposto Inteligente helps service providers, healthcare professionals, and business owners legally reduce taxes and optimize finances." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/69a6a4ca-6763-42c8-95c3-a7c73c8a036b/id-preview-2d5b371f--4ac56deb-17f8-4f68-b5fe-8337a262fd9a.lovable.app-1779133913257.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/69a6a4ca-6763-42c8-95c3-a7c73c8a036b/id-preview-2d5b371f--4ac56deb-17f8-4f68-b5fe-8337a262fd9a.lovable.app-1779133913257.png" },
     ],
     links: [
       {
