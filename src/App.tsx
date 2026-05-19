@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Instagram, MessageCircle, ArrowUpRight } from "lucide-react";
@@ -8,26 +7,6 @@ import eduardoPortrait from "@/assets/eduardo-portrait.png";
 import strategyImg from "@/assets/strategy.jpg";
 import { Reveal } from "@/components/Reveal";
 import { SplashScreen } from "@/components/SplashScreen";
-
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "EDXCont Contabilidade — Reduza seus impostos de forma legal" },
-      {
-        name: "description",
-        content:
-          "Planejamento tributário e contabilidade estratégica para prestadores de serviço, profissionais da saúde e empresas. Diagnóstico gratuito.",
-      },
-      { property: "og:title", content: "EDXCont Contabilidade" },
-      {
-        property: "og:description",
-        content:
-          "Pague o mínimo de imposto dentro da lei. Contabilidade estratégica com atendimento direto.",
-      },
-    ],
-  }),
-  component: Landing,
-});
 
 const WHATSAPP = "https://wa.me/5500000000000"; // ADICIONAR NÚMERO
 const LINK_MATERIAL = "#"; // ADICIONAR LINK
@@ -476,3 +455,5 @@ function Landing() {
     </div>
   );
 }
+
+export default Landing;
