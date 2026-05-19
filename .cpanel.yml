@@ -1,0 +1,14 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/mercifor/edx.somosleadz.com.br/
+    - export NODE_OPTIONS=--max-old-space-size=2048
+    - /bin/echo "==> Instalando dependências"
+    - cd $DEPLOYPATH && npm install --no-audit --no-fund
+    - /bin/echo "==> Build de produção (cliente estático)"
+    - cd $DEPLOYPATH && npm run build
+    - /bin/echo "==> Publicando assets em public_html"
+    - /bin/mkdir -p $DEPLOYPATH/public_html
+    - /bin/cp -R $DEPLOYPATH/dist/client/. $DEPLOYPATH/public_html/ 2>/dev/null || /bin/cp -R $DEPLOYPATH/.output/public/. $DEPLOYPATH/public_html/
+    - /bin/cp $DEPLOYPATH/public/.htaccess $DEPLOYPATH/public_html/.htaccess
+    - /bin/echo "==> Deploy concluído"
