@@ -11,5 +11,12 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 export default defineConfig({
   tanstackStart: {
     server: { entry: "server" },
+    // Prerender index page as static HTML for cPanel (frontend-only) deploy.
+    prerender: {
+      enabled: true,
+      crawlLinks: true,
+      failOnError: false,
+    },
+    pages: [{ path: "/" }],
   },
 });
