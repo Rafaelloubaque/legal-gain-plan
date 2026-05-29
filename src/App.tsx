@@ -430,11 +430,12 @@ function Landing() {
               Vamos conversar?
             </span>
             <h2 className="mt-4 text-3xl font-bold text-white sm:text-4xl">
-              Seu negócio precisa de uma contabilidade profissional
+              Seu negócio precisa de uma contabilidade profissional.
             </h2>
             <p className="mt-5 text-white/75">
-              Diagnóstico gratuito e direto com o contador responsável.
+              Diagnóstico gratuito e direto comigo.
             </p>
+
             <div className="mt-10">
               <CTA>ME DEIXE ANALISAR SEU NEGÓCIO</CTA>
             </div>
