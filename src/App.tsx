@@ -210,7 +210,7 @@ function Landing() {
         <div className="mx-auto max-w-6xl px-6 py-24">
           <Reveal className="mx-auto max-w-3xl text-center">
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
-              Nossa abordagem
+              Minha abordagem
             </span>
             <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
               A verdade é simples.
@@ -220,8 +220,9 @@ function Landing() {
               porque nunca tiveram alguém que realmente olhasse o negócio com estratégia.
             </p>
             <p className="mt-4 font-medium text-foreground">
-              Oferecemos suporte contábil completo para sua operação:
+              Ofereço suporte contábil completo para sua operação:
             </p>
+
           </Reveal>
 
           <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
