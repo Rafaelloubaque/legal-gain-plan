@@ -329,10 +329,11 @@ function Landing() {
             </Reveal>
             <div className="space-y-5">
               {[
-                ["Planejamento Tributário", "Você entende exatamente o melhor regime pra pagar menos imposto"],
-                ["Diagnóstico Inicial", "Analisamos sua situação atual e mostramos onde está perdendo dinheiro"],
-                ["Acompanhamento Contábil", "Não é só abrir empresa, é cuidar dela todos os meses"],
-                ["Atendimento direto", "Sem enrolação, sem atendimento genérico"],
+                ["Planejamento Tributário", "Você entende exatamente o melhor regime para pagar menos imposto."],
+                ["Diagnóstico Inicial", "Analiso sua situação atual e mostro onde você está perdendo dinheiro."],
+                ["Acompanhamento Contábil", "Não é só abrir empresa, é cuidar dela todos os meses."],
+                ["Atendimento Direto", "Sem enrolação, sem atendimento genérico."],
+
               ].map(([t, d], i) => (
                 <Reveal key={t} delay={i * 0.08}>
                   <div className="flex gap-4 rounded-xl border border-border bg-card p-5 shadow-[var(--shadow-soft)]">
