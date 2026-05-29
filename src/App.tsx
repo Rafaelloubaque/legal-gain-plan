@@ -170,7 +170,7 @@ function Landing() {
                 href="#servicos"
                 className="text-sm font-medium text-white/80 underline-offset-4 transition-colors hover:text-white hover:underline"
               >
-                Ver nossos serviços →
+                Ver meus serviços →
               </a>
             </div>
           </motion.div>
