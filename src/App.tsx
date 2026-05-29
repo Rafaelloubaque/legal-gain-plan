@@ -62,9 +62,10 @@ function Landing() {
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-4">
           <img
             src={logo}
-            alt="EDXCont Contabilidade"
+            alt="Eduardo Oliveira - Consultoria Contábil"
             className={`w-auto transition-all duration-500 ${scrolled ? "h-12" : "h-16"} ${scrolled ? "" : "brightness-0 invert"}`}
           />
+
 
           <nav className="hidden items-center gap-8 md:flex">
             {[
