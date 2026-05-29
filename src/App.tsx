@@ -391,7 +391,7 @@ function Landing() {
         <div className="mx-auto max-w-6xl px-6 py-24">
           <Reveal className="text-center">
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
-              Recursos gratuitos
+              Recursos Gratuitos
             </span>
             <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
               Comece agora com materiais gratuitos
@@ -399,9 +399,10 @@ function Landing() {
           </Reveal>
           <div className="mt-14 grid gap-6 md:grid-cols-3">
             {[
-              { t: "Planejamento Simplificado", d: "Aprenda o básico para organizar sua empresa" },
-              { t: "Receita Saúde", d: "Entenda como funciona a tributação para profissionais da saúde" },
-              { t: "Planilhas para MEI", d: "Controle financeiro simples e prático" },
+              { t: "Planejamento Simplificado", d: "Aprenda o básico para organizar sua empresa." },
+              { t: "Receita Saúde", d: "Entenda como funciona a tributação para profissionais da saúde." },
+              { t: "Planilhas para MEI", d: "Controle financeiro simples e prático." },
+
             ].map((m, i) => (
               <Reveal key={m.t} delay={i * 0.1}>
                 <div className="flex h-full flex-col rounded-2xl border border-border bg-card p-7 shadow-[var(--shadow-soft)] transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-elegant)]">
