@@ -280,8 +280,9 @@ function Landing() {
               Eu vou resolver seus problemas…
             </span>
             <h2 className="mt-4 text-3xl font-bold leading-tight text-white sm:text-4xl">
-              Sou o Eduardo Oliveira, contador e responsável pela EDXCont.
+              Sou o Eduardo Oliveira, contador especializado em planejamento tributário e estratégia empresarial.
             </h2>
+
             <p className="mt-6 text-white/80">
               Hoje ajudo prestadores de serviço, clínicas e profissionais da saúde a:
             </p>
