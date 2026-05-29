@@ -248,9 +248,10 @@ function Landing() {
 
           <Reveal className="mx-auto mt-16 max-w-3xl text-center">
             <p className="border-l-2 border-primary pl-6 text-left text-lg italic text-foreground/90">
-              Contabilidade não é só "cumprir obrigação". É sobre pagar o mínimo possível dentro
+              Contabilidade não é só cumprir obrigação. É sobre pagar o mínimo possível dentro
               da lei e crescer com segurança.
             </p>
+
             <div className="mt-10">
               <CTA>ME DEIXE ANALISAR SEU NEGÓCIO</CTA>
             </div>
