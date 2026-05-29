@@ -111,7 +111,7 @@ function Landing() {
               <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#25D366] text-white">
                 <MessageCircle className="h-3.5 w-3.5 fill-white" strokeWidth={0} />
               </span>
-              <span className="hidden sm:inline">Fale conosco</span>
+              <span className="hidden sm:inline">Fale comigo</span>
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" strokeWidth={2.25} />
             </a>
           </div>
