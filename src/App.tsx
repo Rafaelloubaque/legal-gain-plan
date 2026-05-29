@@ -62,9 +62,10 @@ function Landing() {
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-4">
           <img
             src={logo}
-            alt="EDXCont Contabilidade"
+            alt="Eduardo Oliveira - Consultoria Contábil"
             className={`w-auto transition-all duration-500 ${scrolled ? "h-12" : "h-16"} ${scrolled ? "" : "brightness-0 invert"}`}
           />
+
 
           <nav className="hidden items-center gap-8 md:flex">
             {[
@@ -110,7 +111,7 @@ function Landing() {
               <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#25D366] text-white">
                 <MessageCircle className="h-3.5 w-3.5 fill-white" strokeWidth={0} />
               </span>
-              <span className="hidden sm:inline">Fale conosco</span>
+              <span className="hidden sm:inline">Fale comigo</span>
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" strokeWidth={2.25} />
             </a>
           </div>
@@ -169,7 +170,7 @@ function Landing() {
                 href="#servicos"
                 className="text-sm font-medium text-white/80 underline-offset-4 transition-colors hover:text-white hover:underline"
               >
-                Ver nossos serviços →
+                Ver meus serviços →
               </a>
             </div>
           </motion.div>
@@ -209,7 +210,7 @@ function Landing() {
         <div className="mx-auto max-w-6xl px-6 py-24">
           <Reveal className="mx-auto max-w-3xl text-center">
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
-              Nossa abordagem
+              Minha abordagem
             </span>
             <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
               A verdade é simples.
@@ -219,8 +220,9 @@ function Landing() {
               porque nunca tiveram alguém que realmente olhasse o negócio com estratégia.
             </p>
             <p className="mt-4 font-medium text-foreground">
-              Oferecemos suporte contábil completo para sua operação:
+              Ofereço suporte contábil completo para sua operação:
             </p>
+
           </Reveal>
 
           <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -246,9 +248,10 @@ function Landing() {
 
           <Reveal className="mx-auto mt-16 max-w-3xl text-center">
             <p className="border-l-2 border-primary pl-6 text-left text-lg italic text-foreground/90">
-              Contabilidade não é só "cumprir obrigação". É sobre pagar o mínimo possível dentro
+              Contabilidade não é só cumprir obrigação. É sobre pagar o mínimo possível dentro
               da lei e crescer com segurança.
             </p>
+
             <div className="mt-10">
               <CTA>ME DEIXE ANALISAR SEU NEGÓCIO</CTA>
             </div>
@@ -277,8 +280,9 @@ function Landing() {
               Eu vou resolver seus problemas…
             </span>
             <h2 className="mt-4 text-3xl font-bold leading-tight text-white sm:text-4xl">
-              Sou o Eduardo Oliveira, contador e responsável pela EDXCont.
+              Sou o Eduardo Oliveira, contador especializado em planejamento tributário e estratégia empresarial.
             </h2>
+
             <p className="mt-6 text-white/80">
               Hoje ajudo prestadores de serviço, clínicas e profissionais da saúde a:
             </p>
@@ -304,11 +308,12 @@ function Landing() {
         <div className="mx-auto max-w-6xl px-6 py-24">
           <Reveal className="mx-auto max-w-3xl text-center">
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
-              O que entregamos
+              O que eu entrego
             </span>
             <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
-              Aqui na EDXCont nós preparamos para você:
+              Planejamento contábil estratégico
             </h2>
+
           </Reveal>
 
           <div className="mt-14 grid gap-10 md:grid-cols-[1.1fr_1fr] md:items-center">
@@ -324,10 +329,11 @@ function Landing() {
             </Reveal>
             <div className="space-y-5">
               {[
-                ["Planejamento Tributário", "Você entende exatamente o melhor regime pra pagar menos imposto"],
-                ["Diagnóstico Inicial", "Analisamos sua situação atual e mostramos onde está perdendo dinheiro"],
-                ["Acompanhamento Contábil", "Não é só abrir empresa, é cuidar dela todos os meses"],
-                ["Atendimento direto", "Sem enrolação, sem atendimento genérico"],
+                ["Planejamento Tributário", "Você entende exatamente o melhor regime para pagar menos imposto."],
+                ["Diagnóstico Inicial", "Analiso sua situação atual e mostro onde você está perdendo dinheiro."],
+                ["Acompanhamento Contábil", "Não é só abrir empresa, é cuidar dela todos os meses."],
+                ["Atendimento Direto", "Sem enrolação, sem atendimento genérico."],
+
               ].map(([t, d], i) => (
                 <Reveal key={t} delay={i * 0.08}>
                   <div className="flex gap-4 rounded-xl border border-border bg-card p-5 shadow-[var(--shadow-soft)]">
@@ -385,7 +391,7 @@ function Landing() {
         <div className="mx-auto max-w-6xl px-6 py-24">
           <Reveal className="text-center">
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
-              Recursos gratuitos
+              Recursos Gratuitos
             </span>
             <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
               Comece agora com materiais gratuitos
@@ -393,9 +399,10 @@ function Landing() {
           </Reveal>
           <div className="mt-14 grid gap-6 md:grid-cols-3">
             {[
-              { t: "Planejamento Simplificado", d: "Aprenda o básico para organizar sua empresa" },
-              { t: "Receita Saúde", d: "Entenda como funciona a tributação para profissionais da saúde" },
-              { t: "Planilhas para MEI", d: "Controle financeiro simples e prático" },
+              { t: "Planejamento Simplificado", d: "Aprenda o básico para organizar sua empresa." },
+              { t: "Receita Saúde", d: "Entenda como funciona a tributação para profissionais da saúde." },
+              { t: "Planilhas para MEI", d: "Controle financeiro simples e prático." },
+
             ].map((m, i) => (
               <Reveal key={m.t} delay={i * 0.1}>
                 <div className="flex h-full flex-col rounded-2xl border border-border bg-card p-7 shadow-[var(--shadow-soft)] transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-elegant)]">
@@ -423,11 +430,12 @@ function Landing() {
               Vamos conversar?
             </span>
             <h2 className="mt-4 text-3xl font-bold text-white sm:text-4xl">
-              Seu negócio precisa de uma contabilidade profissional
+              Seu negócio precisa de uma contabilidade profissional.
             </h2>
             <p className="mt-5 text-white/75">
-              Diagnóstico gratuito e direto com o contador responsável.
+              Diagnóstico gratuito e direto comigo.
             </p>
+
             <div className="mt-10">
               <CTA>ME DEIXE ANALISAR SEU NEGÓCIO</CTA>
             </div>
@@ -438,9 +446,9 @@ function Landing() {
       {/* FOOTER */}
       <footer className="border-t border-border bg-background">
         <div className="mx-auto max-w-5xl space-y-4 px-6 py-12 text-center">
-          <img src={logo} alt="EDXCont" className="mx-auto h-16 w-auto" />
+          <img src={logo} alt="Eduardo Oliveira" className="mx-auto h-16 w-auto" />
           <p className="text-xs text-muted-foreground">
-            © 2026 EDXCont Contabilidade LTDA | CNPJ: 39.566.457/0001-01 – Todos os direitos
+            © 2026 Eduardo Oliveira Consultoria Contábil | CNPJ: 39.566.457/0001-01 – Todos os direitos
             reservados
           </p>
           <p className="mx-auto max-w-3xl text-xs leading-relaxed text-muted-foreground">
@@ -448,8 +456,9 @@ function Landing() {
             Instagram, TikTok, LinkedIn ou qualquer uma de suas empresas controladoras. Todas as
             marcas pertencem aos seus respectivos proprietários. Ao acessar este site, você
             concorda que a responsabilidade sobre as informações, serviços e ofertas é
-            exclusivamente da EDXCont Contabilidade LTDA.
+            exclusivamente de Eduardo Oliveira.
           </p>
+
         </div>
       </footer>
     </div>
