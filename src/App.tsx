@@ -446,9 +446,9 @@ function Landing() {
       {/* FOOTER */}
       <footer className="border-t border-border bg-background">
         <div className="mx-auto max-w-5xl space-y-4 px-6 py-12 text-center">
-          <img src={logo} alt="EDXCont" className="mx-auto h-16 w-auto" />
+          <img src={logo} alt="Eduardo Oliveira" className="mx-auto h-16 w-auto" />
           <p className="text-xs text-muted-foreground">
-            © 2026 EDXCont Contabilidade LTDA | CNPJ: 39.566.457/0001-01 – Todos os direitos
+            © 2026 Eduardo Oliveira Consultoria Contábil | CNPJ: 39.566.457/0001-01 – Todos os direitos
             reservados
           </p>
           <p className="mx-auto max-w-3xl text-xs leading-relaxed text-muted-foreground">
@@ -456,8 +456,9 @@ function Landing() {
             Instagram, TikTok, LinkedIn ou qualquer uma de suas empresas controladoras. Todas as
             marcas pertencem aos seus respectivos proprietários. Ao acessar este site, você
             concorda que a responsabilidade sobre as informações, serviços e ofertas é
-            exclusivamente da EDXCont Contabilidade LTDA.
+            exclusivamente de Eduardo Oliveira.
           </p>
+
         </div>
       </footer>
     </div>
